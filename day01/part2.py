@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 import time
 
-DIGITS = {'one' : 1, 'two' : 2, 'three' : 3, 'four' : 4, 'five' : 5, 'six' : 6, 'seven' : 7, 'eight' : 8, 'nine': 9}
+DIGITS = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9}
 
 
 def parse(input_path):
     res = []
     with open(input_path, 'r') as f:
         for line in f.readlines():
+            # find first digit in the string
             first = None
             for i in range(len(line)):
-                # find first digit in the string
                 if line[i].isdigit():
                     first = int(line[i])
                     break
@@ -26,9 +26,9 @@ def parse(input_path):
                 if line[-1-i].isdigit():
                     last = int(line[-1-i])
                     break
-                for digit in DIGITS:
-                    if line[-1-i:].startswith(digit):
-                        last = DIGITS[digit]
+                for digit_str in DIGITS:
+                    if line[-1-i:].startswith(digit_str):
+                        last = DIGITS[digit_str]
                         break
                 if last is not None:
                     break

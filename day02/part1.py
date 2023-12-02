@@ -9,13 +9,11 @@ def parse(input_path):
         for line in f.readlines():
             game = []
             for block in line[line.index(':'):].split(';'):
-                match = re.search(r'(\d+) red', block)
-                red = int(match.groups()[0]) if match is not None else 0
-                match = re.search(r'(\d+) green', block)
-                green = int(match.groups()[0]) if match is not None else 0
-                match = re.search(r'(\d+) blue', block)
-                blue = int(match.groups()[0]) if match is not None else 0
-                game.append((red, green, blue))
+                cubes = []
+                for color in ['red', 'green', 'blue']:
+                    match = re.search(r'(\d+) ' + color, block)
+                    cubes.append(int(match.groups()[0]) if match is not None else 0)
+                game.append(cubes)
             res.append(game)
         return res
 

@@ -1,17 +1,13 @@
 #!/usr/bin/env python3
 import time
-import re
 
 
 def parse(input_path):
     cards = []
     with open(input_path, 'r') as f:
         for line in f.readlines():
-            # the number of spaces between the integers varies, so we remove extra spaces
-            left, right = re.sub(r' +', ' ', line).split(':')[1].split('|')
-            win_nbs = [int(x) for x in left.strip().split(' ')]
-            my_nbs = [int(x) for x in right.strip().split(' ')]
-            cards.append((win_nbs, my_nbs))
+            left, right = line.split(':')[1].split('|')
+            cards.append((left.split(), right.split()))
         return cards
 
 

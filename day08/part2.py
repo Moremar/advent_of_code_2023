@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
+import math
 import time
 from part1 import parse
-import math
 
 
 def solve(directions, transitions):
-    starts = [k for k in transitions if k[-1] == 'A']
+    start_nodes = [node for node in transitions if node[-1] == 'A']
     metrics = []
-    for k in range(len(starts)):
-        curr = starts[k]
-        seen = {(curr, 0)}
-        seen_step = {(curr, 0): 0}
+    for start_node in start_nodes:
+        seen = {(start_node, 0)}
+        seen_step = {(start_node, 0): 0}
+        curr = start_node
         cycle_found = False
         cycle_size = -1
         step = 0
@@ -34,7 +34,7 @@ def solve(directions, transitions):
                 metrics.append((step - cycle_size, cycle_size))
                 break
 
-    # In the metrics array, all our integer pairs have 2 equal numbers.
+    # In the metrics list, we notice that all our integer pairs have 2 equal numbers.
     # This means that all cycle sizes are equal to the number of steps needed to reach the first Z state
     # That is very convenient, it means that for all ghosts to reach a Z state simultaneously, we just need
     # to find a number of steps that is a multiple of the cycle size for each starting state

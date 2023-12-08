@@ -9,7 +9,6 @@ def parse(input_path):
         directions = [(0 if c == 'L' else 1) for c in lines[0].strip()]
         transitions = {}
         for line in lines[2:]:
-            line = line.strip()
             source, left, right = re.findall(r'\w+', line.strip())
             transitions[source] = (left, right)
         return directions, transitions

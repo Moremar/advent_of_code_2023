@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import re
+import time
 
 
 def parse(input_path):
@@ -19,5 +20,7 @@ def solve(times, records):
 
 
 if __name__ == "__main__":
+    start = time.time()
     times, records = parse("data.txt")
-    print('Part 1 :', solve(times, records))
+    result = solve(times, records)
+    print(f'Part 1 : {result}  ({round(1000 * (time.time() - start))} ms)')

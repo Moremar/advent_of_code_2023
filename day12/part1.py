@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import time
 
-# cache the results of the get_count function to avoid calling it multiple identical computations
+# cache the results of the get_count function to avoid multiple identical computations
 CACHE = {}
 
 

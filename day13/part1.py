@@ -12,7 +12,7 @@ def parse(input_path):
 
 def get_reflection_line(block, forbidden=-1):
     max_i, max_j = max([i for (i,j) in block]), max([j for (i, j) in block])
-    # look for a vertical symetry
+    # look for a vertical symmetry
     for j in range(0, max_j):
         is_symmetric = True
         for i in range(max_i+1):
@@ -24,7 +24,7 @@ def get_reflection_line(block, forbidden=-1):
                 break
         if is_symmetric and forbidden != j + 1:
             return j + 1
-    # look for a horizontal symetry
+    # look for a horizontal symmetry
     for i in range(0, max_i):
         is_symmetric = True
         for j in range(max_j+1):

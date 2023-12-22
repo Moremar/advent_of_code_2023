@@ -30,4 +30,4 @@ if __name__ == "__main__":
     start = time.time()
     bricks = parse("data.txt")
     result = solve(bricks)
-    print(f'Part 1 : {result}  ({round(1000 * (time.time() - start))} ms)')
+    print(f'Part 2 : {result}  ({round(1000 * (time.time() - start))} ms)')
